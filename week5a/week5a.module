@@ -1,0 +1,27 @@
+<?php
+function week5a_menu(){
+    $items = array();
+    $items['week5a']=array(
+        'title' => 'Hello Worlds',
+        'page callback' => 'week5a_hello_world1',
+        'access callback' => true,
+    );
+    $items['week5a/%/%'] = array(
+        'title' => 'Hello Worlds',
+        'page callback' => 'week5a_hello_world2',
+        'access callback' => true,
+        'page arguments' => array(1,2)
+    );
+    return $items;
+}
+
+function week5a_hello_world1() {
+    return t("Hello Worlds!!!!!");
+}
+
+function week5a_hello_world2($fname, $lname){
+    return t("Good Day, @fname, @lname", array(
+        '@fname', '@lname'
+    )
+    );
+}
